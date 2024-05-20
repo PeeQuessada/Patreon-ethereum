@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import payment from "../../pay";
 
 export default function Influencer() {
   const [influencer, setInfluencer] = useState(undefined);
@@ -39,20 +40,9 @@ export default function Influencer() {
     init();
   }, [params.id]);
 
-  const pay = async (e) => {
+  const handlePay = async (e) => {
     e.preventDefault();
-    console.log('paying...');
-
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-
-    const transactionRequest = {
-      to: influencer.wallet,
-      value: ethers.parseEther("0.001")
-    };
-
-    const receipt = await signer.sendTransaction(transactionRequest);
-    console.log('receipt: ', receipt);
+    await payment(influencer);
   }
 
   return (
@@ -68,7 +58,7 @@ export default function Influencer() {
               <li className="list-group-item">Youtube Channel: {influencer.youtubeChannel}</li>
               <li className="list-group-item">Wallet: {influencer.wallet}</li>
               <li className="list-group-item">
-                <button type="submit" onClick={(e) => pay(e)} className="btn btn-secondary" disabled={!(influencer.wallet)}>Pay</button>
+                <button type="submit" onClick={(e) => handlePay(e)} className="btn btn-secondary">Pay</button>
               </li>
             </ul>
           ) : null}
