@@ -20,6 +20,15 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Create database
+
+Create a postgress database with this configuration:
+
+- Database Name: influencers
+- columns: id, name, description, youtubeChannel, wallet
+
+after that insert information in .env file
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
