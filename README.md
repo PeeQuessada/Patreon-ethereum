@@ -23,7 +23,6 @@ pnpm dev
 bun dev
 ```
 
-https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
