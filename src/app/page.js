@@ -6,7 +6,6 @@ export const getInfluencers = async () => {
       .from("influencers")
       .select("id, name, youtubeChannel");
 
-    console.log("data: ", data);
     return { props: { influencers: data }};
   } catch (error) {
     console.log("error: ", error.message);
